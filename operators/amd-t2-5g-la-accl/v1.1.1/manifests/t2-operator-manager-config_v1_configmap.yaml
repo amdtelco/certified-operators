@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  controller_manager_config.yaml: "apiVersion: controller-runtime.sigs.k8s.io/v1alpha1\r\nkind:
+    ControllerManagerConfig\r\nhealth:\r\n  healthProbeBindAddress: \"[::]:8085\"\r\nmetrics:\r\n
+    \ bindAddress: \"[::]:8084\"\r\nwebhook:\r\n  port: 7443\r\nleaderElection:\r\n
+    \ leaderElect: true\r\n  resourceName: \"40f5509c.amd.com\"\r\n"
+kind: ConfigMap
+metadata:
+  name: t2-operator-manager-config
