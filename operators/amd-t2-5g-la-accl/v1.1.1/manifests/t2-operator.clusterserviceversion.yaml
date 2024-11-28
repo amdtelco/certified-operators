@@ -265,7 +265,7 @@ spec:
                 - --upstream=http://[::]:8084/
                 - --logtostderr=true
                 - --v=0
-                image: gcr.io/kubebuilder/kube-rbac-proxy:v0.13.1
+                image: gcr.io/kubebuilder/kube-rbac-proxy@sha256:d4883d7c622683b3319b5e6b3a7edfbf2594c18060131a8bf64504805f875522
                 name: kube-rbac-proxy
                 ports:
                 - containerPort: 8543
@@ -296,7 +296,7 @@ spec:
                   valueFrom:
                     fieldRef:
                       fieldPath: metadata.name
-                image: quay.io/amdaecgt2/amd-t2:v5.6.0
+                image: quay.io/amdaecgt2/amd-t2@sha256:bc7c739d8a2b4f89295e33f00f46e4d1cb67bbb770b46d51f574a0a7f78c59b9
                 livenessProbe:
                   httpGet:
                     path: /healthz
@@ -392,3 +392,8 @@ spec:
   provider:
     name: AMD
   version: 5.6.0
+  relatedImages:
+  - name: kube-rbac-proxy
+    image: gcr.io/kubebuilder/kube-rbac-proxy@sha256:d4883d7c622683b3319b5e6b3a7edfbf2594c18060131a8bf64504805f875522
+  - name: manager
+    image: quay.io/amdaecgt2/amd-t2@sha256:bc7c739d8a2b4f89295e33f00f46e4d1cb67bbb770b46d51f574a0a7f78c59b9
